@@ -6,9 +6,6 @@
 
 (add-to-list 'load-path ".")
 
-(mapc (lambda (p)
-        (princ (concat p "\n"))) load-path)
-
 (load "test-ox-pukiwiki.el")
 (setq org-startup-folded nil)
 (ert-run-tests-batch-and-exit)
