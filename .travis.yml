@@ -1,11 +1,12 @@
+# `emacs-lisp' isn't supported and fallback to `ruby'
 language: emacs-lisp
 
 env:
   matrix:
-    - EMACS=emacs23 ORG=maint
-    - EMACS=emacs23 ORG=master
-    - EMACS=emacs24 ORG=maint
-    - EMACS=emacs24 ORG=master
+    - EMACS=emacs23 ORG_BRANCH=maint
+    - EMACS=emacs23 ORG_BRANCH=master
+    - EMACS=emacs24 ORG_BRANCH=maint
+    - EMACS=emacs24 ORG_BRANCH=master
 
 before_install:
   - sudo add-apt-repository -y ppa:cassou/emacs
@@ -16,7 +17,8 @@ before_install:
   - export PATH="/home/travis/.cask/bin:$PATH"
   - cask --version
 
-  - git clone --branch $ORG --depth 1 git://orgmode.org/org-mode.git
+  - git clone --branch $ORG_BRANCH --depth 1 git://orgmode.org/org-mode.git && (cd org-mode && make autoloads)
 
 script:
   - emacs --version
+  - pwd
