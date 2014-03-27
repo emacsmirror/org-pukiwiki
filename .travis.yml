@@ -1,5 +1,6 @@
-# `emacs-lisp' isn't supported and fallback to `ruby'
-language: emacs-lisp
+# `emacs-lisp' isn't yet supported. If set, it will fallback to `ruby'
+# So, use `C' instead.
+language: c
 
 env:
   global:
@@ -7,10 +8,10 @@ env:
     - ORG_DIR=org-mode
 
   matrix:
-    - EMACS=emacs23 ORG_BRANCH=maint
-    - EMACS=emacs23 ORG_BRANCH=master
     - EMACS=emacs24 ORG_BRANCH=maint
     - EMACS=emacs24 ORG_BRANCH=master
+    - EMACS=emacs-snapshot ORG_BRANCH=maint
+    - EMACS=emacs-snapshot ORG_BRANCH=master
 
 before_install:
   - sudo add-apt-repository -y ppa:cassou/emacs
