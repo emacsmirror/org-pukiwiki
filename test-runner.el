@@ -1,4 +1,4 @@
-(let ((dir-list '("lisp" "testing" "contrib/lisp"))
+(let ((dir-list '("lisp" "testing"))
       (prefix (or (getenv "ORG_DIR") "~/src/org-mode")))
   (mapc (lambda (dir)
           (add-to-list 'load-path (concat (file-name-as-directory prefix) dir)))

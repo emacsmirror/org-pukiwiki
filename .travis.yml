@@ -3,7 +3,7 @@ language: emacs-lisp
 
 env:
   global:
-    - ORG_REPO="git://orgmode.org/org-mode.git"
+    - ORG_REPO=git://orgmode.org/org-mode.git
     - ORG_DIR=org-mode
 
   matrix:
