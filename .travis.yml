@@ -2,6 +2,8 @@
 language: emacs-lisp
 
 env:
+  - ORG_REPO=git://orgmode.org/org-mode.git
+  - ORG_DIR=org-mode
   matrix:
     - EMACS=emacs23 ORG_BRANCH=maint
     - EMACS=emacs23 ORG_BRANCH=master
@@ -17,8 +19,10 @@ before_install:
   - export PATH="/home/travis/.cask/bin:$PATH"
   - cask --version
 
-  - git clone --branch $ORG_BRANCH --depth 1 git://orgmode.org/org-mode.git && (cd org-mode && make autoloads)
+  - git clone --branch $ORG_BRANCH ORG_REPO && (cd org-mode && echo "autoloads:" > local.mk && make)
 
 script:
   - emacs --version
   - pwd
+  - find /home/travis
+  - emacs -Q --script test-runner.el
