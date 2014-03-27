@@ -16,7 +16,7 @@ before_install:
   - export PATH="/home/travis/.cask/bin:$PATH"
   - cask --version
 
-  - git clone git clone git://orgmode.org/org-mode.git
+  - git clone --branch $ORG --depth 1 git://orgmode.org/org-mode.git
 
 script:
   - emacs --version
