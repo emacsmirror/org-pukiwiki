@@ -2,8 +2,10 @@
 language: emacs-lisp
 
 env:
-  - ORG_REPO=git://orgmode.org/org-mode.git
-  - ORG_DIR=org-mode
+  global:
+    - ORG_REPO="git://orgmode.org/org-mode.git"
+    - ORG_DIR=org-mode
+
   matrix:
     - EMACS=emacs23 ORG_BRANCH=maint
     - EMACS=emacs23 ORG_BRANCH=master
